@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kiko Villas Bávaro — Club de Vacaciones Privado</title>
+    <style>
+        /* --- Paleta de Colores Caribeña de Lujo --- */
+        :root {
+            --bg-ocean: #07162c;
+            --card-surface: #0f233d;
+            --accent-teal: #00f0ff;
+            --text-sand: #f7f5f0;
+            --text-muted: #a0aec0;
+            --border-sand: rgba(247, 245, 240, 0.15);
+            --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* --- Reset Global --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: var(--font-primary);
+            background: var(--bg-ocean);
+            color: var(--text-sand);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        h1 {
+            font-size: 3rem;
+            line-height: 1.15;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+        }
+        h2 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+        .subhead {
+            font-size: 1.25rem;
+            color: var(--text-sand);
+            max-width: 700px;
+            margin-bottom: 32px;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+        }
+        
+        /* --- Elementos Interactivos Vivos --- */
+        .btn {
+            display: inline-block;
+            background: var(--accent-teal);
+            color: var(--bg-ocean);
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-teal);
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);
+        }
+        .btn:hover {
+            background: transparent;
+            color: var(--accent-teal);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 240, 255, 0.5);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--text-sand);
+            border: 2px solid var(--text-sand);
+            box-shadow: none;
+        }
+        .btn-outline:hover {
+            background: var(--text-sand);
+            color: var(--bg-ocean);
+            box-shadow: 0 4px 15px rgba(247, 245, 240, 0.2);
+        }
+
+        /* --- Menú de Navegación --- */
+        .header {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+        .logo-main {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .logo-main span {
+            color: var(--accent-teal);
+        }
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        .nav a {
+            color: var(--text-sand);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+        .nav a:hover {
+            color: var(--accent-teal);
+        }
+
+        /* --- Héroe de Fondo: Playa de Bávaro Limpia --- */
+        .hero {
+            position: relative;
+            padding: 160px 0 90px 0;
+            /* Imagen limpia de stock de alta calidad de la playa de Bávaro, sin personas */
+            background: linear-gradient(rgba(7, 22, 44, 0.4), #07162c), 
+                        url('https://media.istockphoto.com/id/1467255291/photo/tropical-island-beach-shore-with-exotic-palm-trees-clear-water-of-caribbean-sea-and-white.jpg?s=612x612&w=0&k=20&c=PMQjvY47mwukCDA5HUECaNdnXAE3FLkw6ugH9jv--9k=') no-repeat center center/cover;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+        .proximity-badge {
+            display: inline-block;
+            background: rgba(15, 35, 61, 0.85);
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--accent-teal);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--accent-teal);
+            margin-bottom: 24px;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            background: #020c1b;
+            border: 1px solid var(--border-sand);
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .proximity-stats {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            background: rgba(15, 35, 61, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 24px 28px;
+            border-radius: 12px;
+            margin: 30px 0 0;
+            border: 1px solid var(--border-sand);
+        }
+        .proximity-stats .stat {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(247, 245, 240, 0.05);
+            padding: 8px 0;
+            font-size: 0.95rem;
+        }
+        .proximity-stats .stat:last-child {
+            border-bottom: none;
+        }
+        .proximity-stats .label {
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+        .proximity-stats .value {
+            font-weight: 700;
+            color: var(--accent-teal);
+        }
+
+        /* --- Estructura de Secciones --- */
+        .section {
+            padding: 80px 0;
+            border-top: 1px solid var(--border-sand);
+        }
+        .section-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent-teal);
+            margin-bottom: 10px;
+        }
+        .section-desc {
+            max-width: 800px;
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 45px;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+        .feature-item {
+            background: var(--card-surface);
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid var(--border-sand);
+            transition: transform 0.3s ease;
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+        .feature-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        .feature-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .feature-item .highlight {
+            color: var(--text-sand);
+            font-weight: 600;
+        }
+
+        /* --- Tarjetas de Paquetes Dinámicas --- */
+        .package-showcase {
+            background: linear-gradient(145deg, #132b4a, #0b1d34);
+            border: 1px solid var(--border-sand);
+            border-radius: 16px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        .package-showcase.featured {
+            border: 2px solid var(--accent-teal);
+        }
+        .package-showcase.featured::before {
+            content: "Mejor Valor";
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--accent-teal);
+            color: var(--bg-ocean);
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 4px 30px;
+            transform: rotate(45deg);
+            letter-spacing: 0.05em;
+        }
+        .package-title-area {
+            border-bottom: 1px solid var(--border-sand);
+            padding-bottom: 24px;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .package-duration {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-teal);
+        }
+        .package-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--text-sand);
+        }
+        .bullet-list {
+            list-style: none;
+        }
+        .bullet-list li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 16px;
+            color: var(--text-sand);
+            font-size: 1rem;
+        }
+        .bullet-list li::before {
+            content: "🌴";
+            position: absolute;
+            left: 0;
+            font-size: 1.1rem;
+        }
+
+        /* --- Contenedor de Calendario --- */
+        .widget-container {
+            background: var(--card-surface);
+            border: 1px solid var(--border-sand);
+            border-radius: 12px;
+            margin-top: 30px;
+            overflow: hidden;
+        }
+        .widget-placeholder {
+            padding: 80px 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-style: italic;
+            border: 2px dashed rgba(247, 245, 240, 0.15);
+            margin: 24px;
+            border-radius: 8px;
+        }
+
+        /* --- Pie de Página --- */
+        .footer {
+            padding: 80px 0 40px;
+            border-top: 1px solid var(--border-sand);
+            background: #030a14;
+        }
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border-sand);
+        }
+        .brand-title {
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            font-size: 1.2rem;
+        }
+        .verification {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-top: 6px;
+            font-weight: 600;
+        }
+        .btn-partner {
+            color: var(--accent-teal);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border: 2px solid var(--accent-teal);
+            padding: 12px 28px;
+            border-radius: 50px;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .btn-partner:hover {
+            background: var(--accent-teal);
+            color: var(--bg-ocean);
+        }
+        .footer-bottom {
+            padding-top: 40px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+        .footer-bottom p {
+            margin-bottom: 10px;
+        }
+
+        /* --- Ajustes Móviles --- */
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero {
+                padding-top: 140px;
+            }
+            h1 {
+                font-size: 2.3rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .header {
+                position: relative;
+                background: var(--bg-ocean);
+                padding: 20px 24px;
+            }
+            .footer-top {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SECCIÓN HÉROE CON IMAGEN DE PLAYA -->
+    <section class="hero">
+        <div class="container">
+            <header class="header">
+                <div class="logo-main">KIKO VILLAS <span>BÁVARO</span></div>
+                <nav class="nav">
+                    <a href="#asset">El Destino</a>
+                    <a href="#membership">Paquetes</a>
+                    <a href="#booking" class="btn btn-outline" style="padding: 10px 24px; font-size: 0.85rem; border-radius: 50px;">Reservar</a>
+                </nav>
+            </header>
+
+            <div class="hero-grid">
+                <div>
+                    <div class="proximity-badge">📍 Avenida Alemania · El Cortecito</div>
+                    <h1>Tu Propio Pedazo de Paraíso</h1>
+                    <p class="subhead">
+                        Disfruta de un lujo tropical auténtico en el corredor turístico más vibrante de Punta Cana. Tu puerta de acceso privada a un exclusivo conjunto de 16 llaves residenciales gestionadas en Bávaro, República Dominicana.
+                    </p>
+                    <a href="#membership" class="btn">Elige tu Paquete de Estadía</a>
+                    
+                    <div class="proximity-stats">
+                        <div class="stat"><span class="label">Aguas Turquesas de Playa Bávaro</span><span class="value">A Pasos</span></div>
+                        <div class="stat"><span class="label">Centro de Resorts Secrets & Dreams</span><span class="value">Directo Frente</span></div>
+                        <div class="stat"><span class="label">Club de Golf Profesional Cocotal</span><span class="value">Al Lado</span></div>
+                        <div class="stat"><span class="label">Pueblo El Cortecito y Restaurantes</span><span class="value">5–7 Min Caminando</span></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="video-wrapper">
+                        <!-- Enlace de Video de Presentación -->
+                        <iframe src="https://www.youtube.com/embed/Ys-3d1i06iA" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EL ENTORNO TURÍSTICO -->
+    <section class="section" id="asset">
+        <div class="container">
+            <div class="section-label">El Entorno</div>
+            <h2>Rodeado de Sol, Arena y Exclusividad</h2>
+            <p class="section-desc">
+                En Kiko Villas Bávaro, todo lo que deseas está a tu alcance. Sin estrés ni horarios, solo relajación total en la zona más estratégica y divertida de Punta Cana.
+            </p>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>⛳ Campo de Golf Profesional Al Lado</h3>
+                    <p>Cocotal Golf & Country Club colinda <span class="highlight">directamente con nuestra propiedad</span>. Camina hacia un espectacular campo de 27 hoyos diseñado entre palmeras y lagos tropicales, sin necesidad de vehículos.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🌊 Arenas Blancas y Olas Turquesas</h3>
+                    <p>Pasea por los accesos que abren directo a las aguas cristalinas de El Cortecito. Disfruta de bares frente al mar, restaurantes al aire libre y toma el sol en las playas <span class="highlight">más famvas de la República Dominicana</span>.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🌴 Libertad Total en la Isla</h3>
+                    <p>Las opciones de transporte local te esperan <span class="highlight">justo en las puertas de la propiedad</span>. Un trayecto rápido de solo 7 minutos te conecta directo con la vida nocturna, centros comerciales y entretenimiento del Downtown de Punta Cana.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🍹 Relajación Llave en Mano Completa</h3>
+                    <p>Entra a un oasis seguro y perfectamente cuidado. Estar rodeado de resorts globales de cinco estrellas significa contar con <span class="highlight">altos estándares de infraestructura</span>, seguridad constante y un paisaje tropical impecable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ELIGE TU PAQUETE DE VACACIONES -->
+    <section class="section" id="membership">
+        <div class="container">
+            <div class="section-label">Paquetes del Club de Vacaciones</div>
+            <h2>Selecciona Tu Paquete al Paraíso</h2>
+            <p class="section-desc">
+                Precios fijos, claros y transparentes, sin sorpresas ocultas. Elige tu paquete de membresía de derecho de uso a continuación para asegurar tus noches de escape tropical.
+            </p>
+            
+            <div class="feature-grid">
+                
+                <!-- PAQUETE DE 4 NOCHES -->
+                <div class="package-showcase">
+                    <div>
+                        <div class="package-title-area">
+                            <div>
+                                <h3 style="font-size: 1.15rem; margin-bottom: 4px; font-weight: 600;">Paquete Vacation Club</h3>
+                                <div class="package-duration">Estadía de 4 Noches</div>
+                            </div>
+                            <div style="text-align: right;">
+                                <div class="package-price">$375</div>
+                                <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Costo Total</div>
+                            </div>
+                        </div>
+                        <ul class="bullet-list" style="margin-bottom: 35px;">
+                            <li><strong>16 Llaves con Estilo Isleño:</strong> Acceso completo a nuestro inventario selecto de gestión vacacional en Bávaro.</li>
+                            <li><strong>Flujo de Reserva Garantizado:</strong> Interfaz simple y ágil para coordinar tus días de viaje preferidos.</li>
+                            <li><strong>Servicio de Resort Integral:</strong> Mantenimiento diario, limpieza de la propiedad y asistencia en el check-in totalmente resueltos.</li>
+                        </ul>
+                    </div>
+                    <a href="#booking" class="btn btn-outline" style="width: 100%; text-align: center;">Elegir 4 Noches</a>
+                </div>
+
+                <!-- PAQUETE DE 5 NOCHES (DESTACADO) -->
+                <div class="package-showcase featured">
+                    <div>
+                        <div class="package-title-area">
+                            <div>
+                                <h3 style="font-size: 1.15rem; margin-bottom: 4px; font-weight: 600;">Paquete Vacation Club</h3>
+                                <div class="package-duration">Estadía de 5 Noches</div>
+                            </div>
+                            <div style="text-align: right;">
+                                <div class="package-price" style="color: var(--accent-teal);">$475</div>
+                                <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Costo Total</div>
+                            </div>
+                        </div>
+                        <ul class="bullet-list" style="margin-bottom: 35px;">
+                            <li><strong>Un Día Extra en el Paraíso:</strong> Cinco noches completas para absorber al máximo el maravilloso sol caribeño.</li>
+                            <li><strong>Flujo de Reserva Garantizado:</strong> Interfaz simple y ágil para coordinar tus días de viaje preferidos.</li>
+                            <li><strong>Servicio de Resort Integral:</strong> Mantenimiento diario, limpieza de la propiedad y asistencia en el check-in totalmente resueltos.</li>
+                        </ul>
+                    </div>
+                    <a href="#booking" class="btn" style="width: 100%; text-align: center;">Elegir 5 Noches</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERFAZ DE CALENDARIO EN VIVO -->
+    <section class="section" id="booking">
+        <div class="container">
+            <div class="section-label">Reservas en Vivo</div>
+            <h2>Asegura Tus Fechas</h2>
+            <p class="section-desc">Verifica las métricas de disponibilidad actuales en el calendario del resort y asegura tu paquete al instante.</p>
+            
+            <div class="widget-container">
+                <div class="widget-placeholder">
+                    <p>🌴 Inicializando motor de conexión segura con el calendario de la isla...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="brand-title">KIKO VILLAS BÁVARO</div>
+                    <div class="verification">Powered by Crayons</div>
+                </div>
+                <div>
+                    <a href="mailto:partners@yourdomain.com?subject=Solicitud%20de%20Alianza%20Agencias%20-%20Kiko%20Villas&body=Nombre%20de%20la%20Empresa%3A%20%0APersona%20de%20Contacto%3A%20%0AIdentificación%20de%20Industria%20(IATA%2FCLIA)%3A%20%0ANúmero%20de%20Teléfono%3A%20" class="btn-partner">
+                        Agentes de Viajes y Socios
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Avenida Alemania, El Cortecito, Bávaro, Punta Cana, República Dominicana.</p>
+                <p>Configurado estrictamente para estadías de vacaciones de uso residencial comercial. Aplican reglas de límites regionales.</p>
+                <p style="font-size: 0.75rem; color: rgba(247, 245, 240, 0.25); margin-top: 20px;">Esta interfaz maneja puros acuerdos de hospitalidad de derecho de uso del consumidor. No anuncia, presenta ni constituye una oferta de valores de inversión fraccionada o participaciones de propiedad de capital.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+
