@@ -134,7 +134,6 @@
         .hero {
             position: relative;
             padding: 160px 0 90px 0;
-            /* Imagen limpia de stock de alta calidad de la playa de Bávaro, sin personas */
             background: linear-gradient(rgba(7, 22, 44, 0.4), #07162c), 
                         url('https://media.istockphoto.com/id/1467255291/photo/tropical-island-beach-shore-with-exotic-palm-trees-clear-water-of-caribbean-sea-and-white.jpg?s=612x612&w=0&k=20&c=PMQjvY47mwukCDA5HUECaNdnXAE3FLkw6ugH9jv--9k=') no-repeat center center/cover;
             min-height: 85vh;
@@ -316,22 +315,35 @@
             font-size: 1.1rem;
         }
 
-        /* --- Contenedor de Calendario --- */
+        /* --- Contenedor de Calendario Moderno --- */
         .widget-container {
             background: var(--card-surface);
             border: 1px solid var(--border-sand);
             border-radius: 12px;
             margin-top: 30px;
-            overflow: hidden;
-        }
-        .widget-placeholder {
-            padding: 80px 20px;
+            padding: 40px 20px;
             text-align: center;
-            color: var(--text-muted);
-            font-style: italic;
-            border: 2px dashed rgba(247, 245, 240, 0.15);
-            margin: 24px;
-            border-radius: 8px;
+        }
+        .whatsapp-btn {
+            display: inline-block;
+            background-color: #25D366;
+            color: #FFFFFF;
+            padding: 18px 45px;
+            font-size: 1.15rem;
+            font-weight: 800;
+            border-radius: 50px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 8px 25px rgba(37,211,102,0.4);
+            transition: all 0.3s ease;
+            margin-top: 25px;
+        }
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(37,211,102,0.6);
+            background-color: #20ba5a;
+            color: #FFFFFF;
         }
 
         /* --- Pie de Página --- */
@@ -470,7 +482,7 @@
                 </div>
                 <div class="feature-item">
                     <h3>🌊 Arenas Blancas y Olas Turquesas</h3>
-                    <p>Pasea por los accesos que abren directo a las aguas cristalinas de El Cortecito. Disfruta de bares frente al mar, restaurantes al aire libre y toma el sol en las playas <span class="highlight">más famvas de la República Dominicana</span>.</p>
+                    <p>Pasea por los accesos que abren directo a las aguas cristalinas de El Cortecito. Disfruta de bares frente al mar, restaurantes al aire libre y toma el sol en las playas <span class="highlight">más famosas de la República Dominicana</span>.</p>
                 </div>
                 <div class="feature-item">
                     <h3>🌴 Libertad Total en la Isla</h3>
@@ -543,17 +555,34 @@
         </div>
     </section>
 
-    <!-- INTERFAZ DE CALENDARIO EN VIVO -->
+    <!-- SECCIÓN DE DISPONIBILIDAD Y WHATSAPP -->
     <section class="section" id="booking">
         <div class="container">
-            <div class="section-label">Reservas en Vivo</div>
+            <div class="section-label">Reservas Directas</div>
             <h2>Asegura Tus Fechas</h2>
-            <p class="section-desc">Verifica las métricas de disponibilidad actuales en el calendario del resort y asegura tu paquete al instante.</p>
+            <p class="section-desc">Consultas directas sin intermediarios. Revisa nuestras reglas de estadía y reserva tu paquete al instante.</p>
             
             <div class="widget-container">
-                <div class="widget-placeholder">
-                    <p>🌴 Inicializando motor de conexión segura con el calendario de la isla...</p>
+                <h3 style="color: #FFFFFF; font-size: 1.75rem; margin-bottom: 15px; font-weight: 700;">📅 Disponibilidad de Estadías</h3>
+                <p style="font-size: 1.15rem; color: var(--text-sand); max-width: 600px; margin: 0 auto 25px auto; line-height: 1.8;">
+                    Nuestros paquetes exclusivos de 4 y 5 noches están configurados <strong style="color: var(--accent-teal);">únicamente para ingresos los días Lunes con salida los días Viernes</strong>.
+                    <br />
+                    <span style="color: #FFD700; font-size: 0.95rem; font-weight: 600;">*Nota: Los fines de semana están estrictamente bloqueados y reservados para Airbnb.*</span>
+                </p>
+                
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-sand); border-radius: 8px; max-width: 400px; margin: 0 auto; padding: 20px;">
+                    <p style="margin: 6px 0; font-size: 1rem;">🛫 Check-in obligatorio: <strong>Lunes (3:00 PM)</strong></p>
+                    <p style="margin: 6px 0; font-size: 1rem;">🛬 Check-out obligatorio: <strong>Viernes (11:00 AM)</strong></p>
+                    <hr style="border-top: 1px solid var(--border-sand); margin: 12px 0;" />
+                    <p style="color: #2ECC71; font-weight: bold; font-size: 1.05rem; margin: 0;">🟢 Fechas Disponibles Abiertas</p>
                 </div>
+
+                <!-- Botón de WhatsApp Directo Real -->
+                <a href="https://wa.me/529878785284?text=Hola!%20Me%20interesa%20reservar%20un%20paquete%20de%20Lunes%20a%20Viernes%20en%20Kiko%20Villas." 
+                   target="_blank" 
+                   class="whatsapp-btn">
+                   💬 Consultar Disponibilidad por WhatsApp
+                </a>
             </div>
         </div>
     </section>
@@ -582,4 +611,3 @@
 
 </body>
 </html>
-
